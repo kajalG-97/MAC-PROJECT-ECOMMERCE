@@ -20,6 +20,7 @@ import { SignUp } from "./login/SignUp";
 import { OTP } from "./login/OTP";
 import { Register } from "./login/Register";
 import { Login } from "./login/Login";
+import { OrderPage } from "./Payment/Order";
 
 
 export const AllRoutes = () => {
@@ -42,7 +43,7 @@ export const AllRoutes = () => {
                 <Route path="/signup" element={<Register />} />
                 <Route path="/OTP" element={<OTP/>} />
                 <Route path="/SignIn" element={<Login/>} />
-                
+                <Route path="/order" element={<OrderPage/>}/>
             </Routes>
         </>
     )
