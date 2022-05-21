@@ -17,9 +17,9 @@ export const CheckOut = () => {
 
     const dispatch = useDispatch();
 
-    const {userAuth} = useSelector((store)=>store.auth);
+    const { userAuth } = useSelector((store) => store.auth);
 
-    const ID =  userAuth._id;
+    const ID = userAuth._id;
 
     useEffect(() => {
         getData(); getCart();
@@ -29,15 +29,22 @@ export const CheckOut = () => {
         dispatch(getuserData(ID));
     }
 
-    const { user } = useSelector((store) => store.user);  
+    const { user, Loading, Error } = useSelector((store) => store.user);
 
-    const { cartList, Loading, Error } = useSelector((store) => store.cart);
+    const { cartList } = useSelector((store) => store.cart);
 
     const getCart = () => {
         dispatch(getCartData());
     }
 
-    return (
+    return Loading ? (
+        <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" />
+    ) : Error ? (
+        <img
+            src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif"
+            alt="Oops something went wrong"
+        />
+    ) : (
         <>
             <StepNav />
             <h2>Checkout</h2>
@@ -59,14 +66,14 @@ export const CheckOut = () => {
                                 {user.address}
                             </p>
                             <p style={{ textAlign: "left" }}>{user.mobile}</p>
-                            <Box sx={{justifyContent:"space-between",display:"flex",width:"60%",mb:-3}}>
-                            <Button variant="outlined" sx={{}} color="secondary"  startIcon={<EditIcon />} onClick={(e) => {
+                            <Box sx={{ justifyContent: "space-between", display: "flex", width: "60%", mb: -3 }}>
+                                <Button variant="outlined" sx={{}} color="secondary" startIcon={<EditIcon />} onClick={(e) => {
 
-                                navigate(`/editAddress/${user._id}`)
-                            }}>Edit</Button>
-                            <Button variant="outlined" startIcon={<DeleteIcon />} onClick={()=>dispatch(userDeleteData(user._id))}>
-                                Delete
-                            </Button></Box>
+                                    navigate(`/editAddress/${user._id}`)
+                                }}>Edit</Button>
+                                <Button variant="outlined" startIcon={<DeleteIcon />} onClick={() => dispatch(userDeleteData(user._id))}>
+                                    Delete
+                                </Button></Box>
 
                             <br />
                             <Button

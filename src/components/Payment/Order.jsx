@@ -32,6 +32,7 @@ const navigate = useNavigate();
 
     return (
         <>
+        <StepNav/>
             <Box>
                 <Box>
                     <h3>Your Orders</h3>

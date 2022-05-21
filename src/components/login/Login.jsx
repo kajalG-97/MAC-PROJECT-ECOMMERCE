@@ -12,7 +12,7 @@ import LoginIcon from '@mui/icons-material/Login';
 export const Login = () => {
 
     const { loading, error } = useSelector((store) => store.auth);
-    
+
 
     const navigate = useNavigate();
 
@@ -41,7 +41,14 @@ export const Login = () => {
         password,
     } = data;
 
-
+    // loading ? (
+    //     <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" />
+    // ) : error ? (
+    //     <img
+    //         src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif"
+    //         alt="Oops something went wrong"
+    //     />
+    // ) : 
     return (
         <Box sx={{ bgcolor: "#f8dcdf", height: "700px" }}>
             <Link to="/" style={{ textDecoration: "none" }}> <Typography variant="p" sx={{ m: "auto", pt: 3 }} component="h1" color="#570aa0">
@@ -77,32 +84,32 @@ export const Login = () => {
                         variant="standard"
                         value={password}
                         onChange={(e) => handleChange(e)}
-                    />                         
+                    />
                     <LoadingButton
-                            sx={[
-                                {
-                                    boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)",
-                                    m: 1,
-                                    mt: 5,
-                                    color: "#ffffff",
-                                    bgcolor: "#ed3b58", pl: 5, pr: 5
-                                },
-                                () => ({
-                                    "&:hover": {
-                                        color: "#fafafa", bgcolor: "#f36c82"
-                                    }
-                                }),
-                            ]}
-                            value="desc"
-                            onClick={handleSubmit}
-                            // variant="text"
-                            endIcon={<LoginIcon />}
-                            loading={loading}
-                            loadingPosition="end"
-                            variant="contained"
-                        >
-                            Sign In
-                        </LoadingButton>
+                        sx={[
+                            {
+                                boxShadow: "0 1px 4px 0 rgba(40, 44, 63, 0.4)",
+                                m: 1,
+                                mt: 5,
+                                color: "#ffffff",
+                                bgcolor: "#ed3b58", pl: 5, pr: 5
+                            },
+                            () => ({
+                                "&:hover": {
+                                    color: "#fafafa", bgcolor: "#f36c82"
+                                }
+                            }),
+                        ]}
+                        value="desc"
+                        onClick={handleSubmit}
+                        // variant="text"
+                        endIcon={<LoginIcon />}
+                        loading={loading}
+                        loadingPosition="end"
+                        variant="contained"
+                    >
+                        Sign In
+                    </LoadingButton>
                 </Box>
                 <Typography
                     sx={{

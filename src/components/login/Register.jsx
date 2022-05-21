@@ -35,7 +35,14 @@ export const Register = () => {
 
     const { firstName, email, password, number } = data;
 
-
+    // loading ? (
+    //     <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" />
+    // ) : error ? (
+    //     <img
+    //         src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif"
+    //         alt="Oops something went wrong"
+    //     />
+    // ) : 
     return (
         <Box sx={{ bgcolor: "#f8dcdf", height: "700px" }}>
             <Link to="/" style={{ textDecoration: "none" }}> <Typography variant="p" sx={{ m:"auto",pt:3}} component="h1" color="#570aa0">

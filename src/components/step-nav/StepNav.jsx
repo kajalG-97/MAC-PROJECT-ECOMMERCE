@@ -78,7 +78,7 @@ export const StepNav = () => {
                         >
 
                         </IconButton>
-                        <Link to="/"> <Typography variant="h6" component="div" sx={{ textDecoration: "none", color: "grey", mr: 4, flexGrow: 1, display: "flex", justifyContent: "space-between" }}>
+                        <Link to="/" style={{ textDecoration: "none" }}> <Typography variant="p" component="h2" sx={{ textDecoration: "none", color: "grey", mr: 4, flexGrow: 1, display: "flex", justifyContent: "space-between" }}>
                             HappyMart
                         </Typography></Link>
                         {/* <CartStepper /> */}

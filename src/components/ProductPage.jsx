@@ -43,12 +43,12 @@ export const ProductsPage = () => {
     useEffect(() => {
         getData();
 
-    }, [rating,value,prize,page]);
+    }, [rating, value, prize, page]);
 
 
     const getData = () => {
         axios.get(`https://mac-project-ecommerce.herokuapp.com/products?page=${page}&rating=${rating}&sortBy=${value}&OrderBy=${prize}`).then(({ data }) => {
-            
+
             dispatch(productData(data))
         })
             .catch((err) => dispatch(productError()));

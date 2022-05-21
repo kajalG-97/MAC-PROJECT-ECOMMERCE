@@ -20,8 +20,8 @@ export const CategoryPage = () => {
 
     const [catFilter, setCatFilter] = useState("");
 
- const { productList, proError, proLoading } = useSelector((store) => store.products)
- 
+    const { productList, proError, proLoading } = useSelector((store) => store.products)
+
 
     const size = productList.totalPages;
 
@@ -29,7 +29,7 @@ export const CategoryPage = () => {
 
     useEffect(() => {
         getData();
-    }, [catFilter,page]);
+    }, [catFilter, page]);
 
 
     const getData = () => {
@@ -41,16 +41,23 @@ export const CategoryPage = () => {
     };
 
 
-   
-   
+
+
 
     const Option = ["girls fashion",
         "mens fashion",
         "electronic"];
 
-    return proLoading ? <img src="https://i.gifer.com/origin/d3/d3f472b06590a25cb4372ff289d81711_w200.gif" alt="loading..." /> : proError ? <img src="https://www.betterliving.co.in/images/404.gif" alt="Error" /> : (
+    return proLoading ? (
+        <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" />
+    ) : proError ? (
+        <img
+            src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif"
+            alt="Oops something went wrong"
+        />
+    ) : (
         <>
-        <Navbar/>
+            <Navbar />
             <h1>CategoryPage</h1>
             <Box sx={{ border: 0, width: "40%" }}>
                 <FormControl variant="standard" sx={{ m: 1, minWidth: 300 }}>
@@ -107,7 +114,7 @@ export const CategoryPage = () => {
                     return <ProductCard key={event.id} event={event} />
                 })}</Box>
 
-<br />
+            <br />
             <br />
             <Box sx={{ width: "fit-content", margin: "auto" }}>
                 <Stack spacing={4}>
