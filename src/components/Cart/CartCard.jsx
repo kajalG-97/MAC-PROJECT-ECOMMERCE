@@ -25,26 +25,39 @@ export const CartCard = ({ data }) => {
 
     const { isAuthenticated, userAuth } = useSelector((store) => store.auth);
 
-    const [size, setSize] = useState(data.length);
+    const {cartList} = useSelector((store) => store.cart);
+
+    const [size, setSize] = useState(cartList.length);
+    console.log('datalength', data);
 
 
     const [count, setCount] = React.useState(data.qty);
+    console.log('count', count);
+
+
+    const [reload, setReload] = useState(1);
+    console.log('reload', reload);
 
 
     const dispatch = useDispatch();
+
 
     useEffect(() => {
         patchData();
 
         getCart();
 
-    }, [size, count]);
+    }, [size, count,reload]);
+
+
+    console.log('size', size);
 
 
     const cartDelete = (e) => {
         dispatch(cartDeleteData(data._id))
         console.log('data', data);
         setSize(size - 1);
+        // setReload(reload + 1);
 
         // dispatch(
         //     updateUserInfoData(
@@ -83,6 +96,8 @@ export const CartCard = ({ data }) => {
 
 
     sessionStorage.setItem("qtySize", JSON.stringify(size));
+
+
     return (
         <Box sx={{ display: 'flex', p: 3, justifyContent: 'space-around', width: "90%", m: "auto", mb: 3, boxShadow: `rgba(0, 0, 0, 0.16) 0px 1px 4px` }}>
             <Box sx={{ flex: 1.5, border: 0, height: "70%", mt: 2 }} >
