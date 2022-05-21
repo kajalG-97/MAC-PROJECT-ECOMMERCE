@@ -17,7 +17,12 @@ export const EditAddress = () => {
 
     const navigate = useNavigate();
 
+    const { single } = useSelector((store) => store.user);
+    const [data, setData] = React.useState({});
+
+
     React.useEffect(() => {
+        setData(single);
         getData();
     }, []);
 
@@ -26,9 +31,9 @@ export const EditAddress = () => {
         dispatch(getSingleData(id));
     }
 
-    const { single } = useSelector((store) => store.user);  
 
-    const [data, setData] = React.useState( single );
+
+
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -45,7 +50,7 @@ export const EditAddress = () => {
     }
 
     const { name, mobile, address } = data;
-   
+
     return (
         <Box sx={{ mt: 5 }}>
             <Box sx={{ border: 0, display: "flex", alignItems: "center", m: "auto", mb: 5, width: "28%" }}>
