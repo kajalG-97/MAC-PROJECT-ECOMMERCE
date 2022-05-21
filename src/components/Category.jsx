@@ -7,12 +7,13 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 import InputLabel from "@mui/material/InputLabel";
-import { ProductCard } from "./ProductCard";
+
 import { Navbar } from "./Navbar";
 
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Pagination } from "@mui/material";
+import { ProductCard } from "./ProductCard";
 
 export const CategoryPage = () => {
 
