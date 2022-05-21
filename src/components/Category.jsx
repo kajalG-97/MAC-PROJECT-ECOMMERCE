@@ -7,7 +7,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 import InputLabel from "@mui/material/InputLabel";
-import { ProductCard } from "./productCard";
+import { ProductCard } from "./ProductCard";
 import { Navbar } from "./Navbar";
 
 import Stack from "@mui/material/Stack";
