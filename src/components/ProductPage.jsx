@@ -15,7 +15,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { CheckboxesGroup } from "./CheckBox";
 import axios from "axios";
 import { Navbar } from "./Navbar";
-import { ProductCard } from "./productCard";
+import { ProductCard } from "./ProductCard";
 
 export const ProductsPage = () => {
 
