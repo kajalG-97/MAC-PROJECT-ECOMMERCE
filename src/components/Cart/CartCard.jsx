@@ -3,7 +3,6 @@ import { Box, Button } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
-
 import { cartDeleteData, cartPatchData, getCartData } from "../../redux/cart/cartAction";
 
 import { useEffect, useState } from "react";

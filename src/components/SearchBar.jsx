@@ -87,7 +87,8 @@ export const SearchBar = () => {
 
 
     return (
-        <><Box>
+
+        <Box sx={{ mt: 3, display: { xs: "none", md: "inline-block" }, height: "50px" }}>
             <Search>
                 <SearchIconWrapper>
                     <SearchIcon />
@@ -98,25 +99,39 @@ export const SearchBar = () => {
                     onChange={(e) => optimize_function(e.target.value)}
                 />
             </Search>
-        </Box>
-            <Box>
+
+            <Box sx={{ mt: 1.4, boxShadow: `rgba(0, 0, 0, 0.16) 0px 1px 4px` }}>
 
                 {data.length > 0 && (
-                    <div className="autocomplete">
+                    <div style={{
+                        backgroundColor: "#ffffff",
+                        color: "#000000",
+                        textAlign: "left",
+                       
+                        width: "200%",
+                        height: "200px",
+                        overflow: "scroll"
+                    }} className="autocomplete">
                         {data.map((el, i) => (
-                            <div style={{backgroundColor:"#ffffff",
-                                color:"#000000",
-                                width:"100%",
-                                height:"150px",
-                                overflow:scroll}} key={i} className="autocompleteItems">
-                                <Link to={`/product/${el._id}`}>
-                                    <p style = {{color:"#000000",textDecoration:"none"}}>{el.product_name}</p>
+
+                            <Box key={i}
+                                sx={[{p:0,pl:5,lineHeight:0.5,m:0,height:"fit-content",border:"0.1px solid transparent"},() => ({
+                                    "&:hover": {
+                                        color: "#fafafa", bgcolor: "#ff5874c0"
+                                    }
+                                })]}
+                                className="autocompleteItems">
+
+
+                                <Link to={`/product/${el._id}`} style={{ textDecoration: "none" }}>
+                                    <p style={{ color: "#000000", textDecoration: "none" }}>{el.product_name}</p>
                                 </Link>
-                            </div>
+                            </Box>
                         ))}
                     </div>
                 )}
             </Box>
-        </>
+        </Box>
+
     )
 }
