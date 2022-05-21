@@ -37,10 +37,10 @@ const navigate = useNavigate();
                 <Box>
                     <h3>Your Orders</h3>
                 </Box>
-                <Box>  {cartList && cartList.map((data) => {
+                <Box>  {cartList && cartList.map((data,i) => {
 
 
-                    return <Box key={data.id} sx={{ display: 'flex', p: 3, justifyContent: 'space-around', width: "40%", m: "auto", mb: 3, boxShadow: `rgba(0, 0, 0, 0.16) 0px 1px 4px` }}>
+                    return <Box key={i} sx={{ display: 'flex', p: 3, justifyContent: 'space-around', width: "40%", m: "auto", mb: 3, boxShadow: `rgba(0, 0, 0, 0.16) 0px 1px 4px` }}>
 
 
                         <Box sx={{ flex: 1.5, border: 0, height: "70%", mt: 2 }} >

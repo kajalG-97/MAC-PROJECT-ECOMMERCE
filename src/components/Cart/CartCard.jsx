@@ -4,8 +4,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 
 
-import { useDispatch } from "react-redux";
-
 import { cartDeleteData, cartPatchData, getCartData } from "../../redux/cart/cartAction";
 
 import { useEffect, useState } from "react";
@@ -18,9 +16,14 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 
 
 
+import { useDispatch, useSelector } from "react-redux";
+
 
 
 export const CartCard = ({ data }) => {
+
+
+    const { isAuthenticated, userAuth } = useSelector((store) => store.auth);
 
     const [size, setSize] = useState(data.length);
 
@@ -30,13 +33,6 @@ export const CartCard = ({ data }) => {
 
     const dispatch = useDispatch();
 
-
-    const cartDelete = (e) => {
-        dispatch(cartDeleteData(data._id))
-        console.log('data', data);
-        setSize(size - 1);
-    }
-
     useEffect(() => {
         patchData();
 
@@ -45,8 +41,24 @@ export const CartCard = ({ data }) => {
     }, [size, count]);
 
 
+    const cartDelete = (e) => {
+        dispatch(cartDeleteData(data._id))
+        console.log('data', data);
+        setSize(size - 1);
+
+        // dispatch(
+        //     updateUserInfoData(
+        //         { ...userAuth, cart_ids: [...userAuth.cart_ids, data._id] },
+        //         userAuth._id
+        //     )
+        // );
+    }
+
+
+
+
     const getCart = () => {
-        dispatch(getCartData());
+        dispatch(getCartData(userAuth._id));
 
     }
 
@@ -69,6 +81,8 @@ export const CartCard = ({ data }) => {
 
     }
 
+
+    sessionStorage.setItem("qtySize", JSON.stringify(size));
     return (
         <Box sx={{ display: 'flex', p: 3, justifyContent: 'space-around', width: "90%", m: "auto", mb: 3, boxShadow: `rgba(0, 0, 0, 0.16) 0px 1px 4px` }}>
             <Box sx={{ flex: 1.5, border: 0, height: "70%", mt: 2 }} >
@@ -91,7 +105,7 @@ export const CartCard = ({ data }) => {
             </Box>
 
             <Box sx={{ flex: 1 }}>
-               
+
 
                 {/* <GroupSizesColors item={data}/> */}
 

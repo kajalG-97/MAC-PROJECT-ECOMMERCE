@@ -17,11 +17,11 @@ export const cartError = () => ({ type: "CART_ERROR" })
 export const cartData = (payload) => ({ type: CART_DATA, payload });
 
 export const getCartData = (_id) => (dispatch) => {
-console.log('_id', _id);
-
+    
     dispatch(cartLoading());
 
     axios.get(`https://mac-project-ecommerce.herokuapp.com/users/${_id}`).then(({ data }) =>{ 
+    console.log('userAuth_id', _id);
 
     dispatch(cartData(data.cart_ids))
 })

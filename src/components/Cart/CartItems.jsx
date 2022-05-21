@@ -15,6 +15,7 @@ export const CartItems = () => {
     const dispatch = useDispatch();
 
     const { isAuthenticated, userAuth } = useSelector((store) => store.auth);
+    console.log('userAuth', userAuth);
 
 
     if (!isAuthenticated) {
@@ -30,15 +31,20 @@ export const CartItems = () => {
     const getCart = () => {
         dispatch(getCartData(userAuth._id));
     }
+
     let total = 0;
-    return Loading ? (
-        <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" />
-    ) : Error ? (
-        <img
-            src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif"
-            alt="Oops something went wrong"
-        />
-    ) : (
+    
+    return (
+        //  Loading ? (
+        //     <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" />
+        // ) :
+        //  Error ? (
+        //     <img
+        //         src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif"
+        //         alt="Oops something went wrong"
+        //     />
+        // ) : 
+        // (
         <>
             <Box sx={{ width: "60%", m: "auto", mt: 5, p: 4, border: 0, boxShadow: `rgba(0, 0, 0, 0.24) 0px 3px 8px`, display: "flex", justifyContent: "space-around" }}>
                 <Box sx={{ width: "60%", border: 0 }}>
