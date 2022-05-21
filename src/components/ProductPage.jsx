@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductData, productData, productError } from "../redux/product/productAction";
-import { ProductCard } from "./productCard";
+
 import Button from '@mui/material/Button';
 import Rating from '@mui/material/Rating';
 import Stack from "@mui/material/Stack";
@@ -15,6 +15,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { CheckboxesGroup } from "./CheckBox";
 import axios from "axios";
 import { Navbar } from "./Navbar";
+import { ProductCard } from "./productCard";
 
 export const ProductsPage = () => {
 
